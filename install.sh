@@ -12,12 +12,12 @@ else
 echo "Error: Directory esp does not exists."
 echo "creating directory esp"
 fi
-if [ -d "$HOME/esp/esp-id" ]
+if [ -d "$HOME/esp/esp-idf" ]
 then
 echo "esp-idf is already installed"
 else
 echo "Downloading esp-idf"
-git clone --recursive https://github.com/gokulmaxi/pythoncalloverusb.git #change the url
+git clone --recursive  #change the url
 mv pythoncalloverusb $HOME/esp/
 
 export IDF_PATH=$HOME/esp/esp-idf

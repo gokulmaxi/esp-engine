@@ -1,21 +1,12 @@
 import os
 import sys
 import enquiries
-os.system('pwd')
-
+pwd = os.environ['ESP_ENGINE']
 options = ['ESP32', 'ESP8266',]
 choice = enquiries.choose('Choose one of these options: ', options)
-#/home/gokul/projects/python/espexport/test.sh
 print("configuring the session for "+choice)
-os.system('export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"')
 if(choice=='ESP8266'):
-    os.system('unset IDF_PATH')
-    os.system('export PATH="$PATH:$HOME/esp/xtensa-lx106-elf/bin"')
-    os.system('export IDF_PATH=~/esp/ESP8266_RTOS_SDK')
+    os.system("gnome-terminal -e 'bash -c \"sudo "+pwd+"/esp8266.sh; exec bash\"'")
 if(choice=='ESP32'):
-    os.system('unset IDF_PATH')
-    print("deleting the default path")
-    os.system('export IDF_PATH=~/esp/esp-idf')
-    print('exporting the idfpath')
-    os.system('')
+    os.system("gnome-terminal -e 'bash -c \"sudo "+pwd+"/esp32.sh; exec bash\"'")
     print('completed')
